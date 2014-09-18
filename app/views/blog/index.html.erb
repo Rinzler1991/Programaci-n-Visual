@@ -1,7 +1,17 @@
-<h1>Fotoblog</h1>
-<p>Bienvenido a mi primer proyecto hecho en Ruby on Rails 4</p>
+<body bgcolor="#101010">
+<font face="Ubuntu" color="#ffffff" size="4">
 
+<h1><font color="blue">Fotoblog(<%= @cantidad %>)</font></h1>
+<p><i>Bienvenido a mi primer proyecto hecho en Ruby on Rails 4</i></p>
+<br>
 
-<%= 'Hola desde Ruby' %>
+<%= '¡Hola desde Ruby!' %> <br>
+<br>
+<%= @mensaje.titulo%> <br>
+<%= @mensaje.descripcion%> <br>
 
-<%= @mensaje%>
+<br><br><br><br><br><br><br><br><br>
+<footer> Fecha y hora en el servidor: <%= @currentTime%> </footer>
+<font color="101010">El conejo salta si lo tocas...</font>
+</font>
+</body>
