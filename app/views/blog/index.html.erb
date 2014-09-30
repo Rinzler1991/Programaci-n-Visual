@@ -1,17 +1,21 @@
-<body bgcolor="#101010">
-<font face="Ubuntu" color="#ffffff" size="4">
+<h1>Fotoblog(<%= @mensajes.size %>)</h1>
 
-<h1><font color="blue">Fotoblog(<%= @cantidad %>)</font></h1>
-<p><i>Bienvenido a mi primer proyecto hecho en Ruby on Rails 4</i></p>
-<br>
 
-<%= '¡Hola desde Ruby!' %> <br>
-<br>
-<%= @mensaje.titulo%> <br>
-<%= @mensaje.descripcion%> <br>
+<%= link_to 'Nuevo_mensaje' , 
+	:action => 'nuevo_mensaje'%>
 
-<br><br><br><br><br><br><br><br><br>
-<footer> Fecha y hora en el servidor: <%= @currentTime%> </footer>
-<font color="101010">El conejo salta si lo tocas...</font>
-</font>
-</body>
+<table border="1">
+	<tr>
+		<th>id</th>
+		<th>Titulo</th>
+		<th>Descripcion</th>
+	</tr>
+	<% for mensaje in @mensajes %>
+		<tr>
+			<td> <%= mensaje.id%> </td>
+			<td> <%= mensaje.titulo%> </td>
+			<td> <%= mensaje.descripcion%> </td>
+		</tr>
+	<%end%>
+
+</table>

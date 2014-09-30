@@ -1,19 +1,31 @@
 class BlogController < ApplicationController
 	def index
-		#crear un registro
-		registro = Mensaje.new
-		registro.titulo="Primer titulo"
-		registro.descripcion="Mi primera descripcion"
-		registro.save
+		@mensajes = Mensaje.all
+	end	
+	def nuevo_mensaje
+		@mensaje = Mensaje.new		
+	end
+	def guardar_mensaje		
+		#Inicializamos objeto
+		@mensaje = Mensaje.new(mensaje_params)
+		#Guardamos el mensaje en la bd
 
-		#manda el primer registro de la bd
-		@mensaje = Mensaje.first
+		#Condicion para evaluar si se cumplieron las validaciones
+		if	@mensaje.save
+			#Todas las validaciones se cumplieron y se inserta el mensaje nuevo
+			flash[:aviso] = "Mensaje guardado con éxito."			
+			redirect_to :action => 'index'
+		else
+			#No se cumplieron las validaciones y se regresa al formulario
+			flash[:aviso] = "Error, ¡porfavor verifica los datos!"
+			render :action => 'nuevo_mensaje'
+		end
+	end
 
-		#manda la cantidad de registros en la tabla mensajes
-		@cantidad = Mensaje.count
+private
 
-		#Hora y fecha
-		@currentTime = Time.now
+	def mensaje_params
+		params.require(:mensaje).permit(:titulo, :descripcion)	
 	end
 
 end

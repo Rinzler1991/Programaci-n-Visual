@@ -1,0 +1,16 @@
+
+
+<h1><font color="darkblue">Nuevo mensaje</font></h1>
+
+<%= form_tag :action => 'guardar_mensaje' do%>
+	<label for='mensaje_titulo'>Título</label>
+	<br>
+	<%= text_field 'mensaje','titulo' %>
+	<br>
+	<label for='mensaje_descripcion'>Descripción</label>
+	<br>
+	<%= text_area 'mensaje','descripcion' %>
+	<br>
+
+	<%= submit_tag 'Guardar'%>
+<%end%>
