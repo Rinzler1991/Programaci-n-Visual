@@ -1,6 +1,7 @@
 class BlogController < ApplicationController
 	def index
-		@mensajes = Mensaje.all
+		@mensajes = Mensaje.paginate(:page => params[:page], :per_page => 30)
+		@cantidadMensajes = Mensaje.count
 	end	
 	def nuevo_mensaje
 		@mensaje = Mensaje.new		

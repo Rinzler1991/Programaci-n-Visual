@@ -1,4 +1,4 @@
-<h1>Fotoblog(<%= @mensajes.size %>)</h1>
+<h1>Fotoblog(<%= @cantidadMensajes %>)</h1>
 
 
 <%= link_to 'Nuevo_mensaje' , 
@@ -17,5 +17,5 @@
 			<td> <%= mensaje.descripcion%> </td>
 		</tr>
 	<%end%>
-
 </table>
+<%= will_paginate @mensajes %>
