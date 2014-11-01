@@ -1,3 +1,41 @@
 // Place all the styles related to the blog controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+nav ul li h1 a { font-size: 28px; }
+
+nav ul li h1 a :hover {	font-size: 32px; }
+
+.nuevo 
+{
+	font-size: 30px;
+	color: #EC3D24;
+}
+
+.titulo
+{
+	color: #000000;
+	background-color: #D6D6D6;
+	font-weight: bold;
+	font-size: 18px;
+	width: auto;
+	border-radius: 2px;	
+}
+
+.descripcion { font-size: 14px; width: 100%; }
+
+#liga {	color: #000000; }
+
+.fecha { color: #3874D7; padding-right: 10px; }
+
+.fondo 
+{ 
+	background: #FFFFFF; 
+	border-radius: 8px;
+	margin: 10px 20px 10px 20px; 
+	overflow: auto;
+}
+
+.imagen img { -webkit-transition:.5s; }
+
+.imagen img:hover { -webkit-transform:rotate(360deg); }

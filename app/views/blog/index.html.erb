@@ -1,21 +1,33 @@
-<h1>Fotoblog(<%= @cantidadMensajes %>)</h1>
+<% if flash[:notice]%>
+	<div id="myModal" class="reveal-modal" data-reveal>
+	<div class="notice"><%= flash[:notice] %> </div>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+<%end%>
 
+<label id="nuevo",class="nuevo">(<%= @cantidadMensajes %>)</label>
 
-<%= link_to 'Nuevo_mensaje' , 
-	:action => 'nuevo_mensaje'%>
+<div class="row">
+<% for mensaje in @mensajes %>
+		<div class="medium-3 columns">
+			<div class="fondo">
+				<p class="large-12 columns titulo"> 
+					<%= mensaje.titulo.upcase.at(0..15) %> 
+				</p>
 
-<table border="1">
-	<tr>
-		<th>id</th>
-		<th>Titulo</th>
-		<th>Descripcion</th>
-	</tr>
-	<% for mensaje in @mensajes %>
-		<tr>
-			<td> <%= mensaje.id%> </td>
-			<td> <%= mensaje.titulo%> </td>
-			<td> <%= mensaje.descripcion%> </td>
-		</tr>
-	<%end%>
-</table>
-<%= will_paginate @mensajes %>
+				<label class="text-center imagen"> 
+					<%= image_tag mensaje.imagen.thumb.url %> 
+				</label>
+				
+				<label class="small-12 columns text-center descripcion">
+					<%= mensaje.descripcion.at(0..15)+ "..."%>
+				</label>
+				
+				<label class="text-right fecha">
+					<%= mensaje.created_at.strftime("%X %p")%>
+				</label>
+			</div>
+		</div>
+	<% end %>
+</div>
+<label class="titulo"><%= will_paginate @mensajes %><label>

@@ -1,16 +1,15 @@
 
+<%=form_tag({:action => :guardar_mensaje}, :multipart => true) do%>
+<div class="row">
+		<div class="large-6 text-left columns ">
+                <div class="large-6 columns">
+                <h3>Nuevo Mensaje</h3>
+	                <%= text_field 'mensaje', 'titulo', :placeholder => "Titulo" %>
+	                <%= text_area 'mensaje', 'descripcion', :placeholder => "Descripcion" %>
+	                <%= file_field 'mensaje', 'imagen', accept: 'image/png,image/gif,image/jpeg' %>
+	                <%= submit_tag 'Guardar', :class => "button [radius round]" %>
+            	</div>
+            <%end%>
+        </div>
 
-<h1><font color="darkblue">Nuevo mensaje</font></h1>
-
-<%= form_tag :action => 'guardar_mensaje' do%>
-	<label for='mensaje_titulo'>Título</label>
-	<br>
-	<%= text_field 'mensaje','titulo' %>
-	<br>
-	<label for='mensaje_descripcion'>Descripción</label>
-	<br>
-	<%= text_area 'mensaje','descripcion' %>
-	<br>
-
-	<%= submit_tag 'Guardar'%>
-<%end%>
+</div>
