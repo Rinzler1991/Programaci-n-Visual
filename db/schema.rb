@@ -16,9 +16,14 @@ ActiveRecord::Schema.define(version: 20141006202229) do
   create_table "mensajes", force: true do |t|
     t.string   "titulo"
     t.text     "descripcion"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "imagen"
   end
 
+  create_table "usuarios", force: true do |t|
+    t.string   "nombre"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
 end

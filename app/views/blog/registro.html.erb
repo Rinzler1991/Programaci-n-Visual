@@ -1,0 +1,14 @@
+<h1>Registro:</h1>
+<%= form_tag :action => :registro do%>
+ <p>
+ 	<label for="usuario_email">Email</label>
+ 	<br/>
+ 	<%= text_field 'usuario', 'email'%>
+ </p>
+ <p>
+ 	<label for="usuario_password">Password</label>
+ 	<br/>
+ 	<%= password_field 'usuario', 'password'%>
+ </p>
+
+<%= submit_tag "Registro"%>

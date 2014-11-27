@@ -23,6 +23,29 @@ class BlogController < ApplicationController
 		end
 	end
 
+	def registro
+		
+	end
+
+	def login
+		if request.post?
+			@usuario = Usuario.find_by_email(params[:usuario][:email])
+			if @usuario && @usuario.authenticate(parms[:usuario][:password])
+				#usuario valido
+				session[:usuario] = @usuario.id
+				redirect_to :action => 'nuevo_mensaje'
+			else
+				#usuario invalido
+				flash[:notice] = 'Email y/o password incorrecto'
+				render :action => 'login'
+			end
+
+
+		else
+			@usuario = Usuario.new
+		end
+	end
+
 private
 	def mensaje_params
 		params.require(:mensaje).permit(:titulo, :descripcion, :imagen)

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
      #Acceden
      get 'blog' => 'blog#index'
      get 'blog/nuevo_mensaje' => 'blog#nuevo_mensaje'
+     get 'blog/registro' => 'blog#registro'
+     get 'blog/login' => 'blog#login'
 
      #reciben
      post 'blog/guardar_mensaje'
